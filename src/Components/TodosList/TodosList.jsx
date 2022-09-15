@@ -5,7 +5,12 @@ import PropTypes, { bool, string } from 'prop-types';
 // eslint-disable-next-line react/prefer-stateless-function
 export default class TodosList extends Component {
   render() {
-    const { todos, addCheck, modifyTitle } = this.props;
+    const {
+      todos,
+      addCheck,
+      modifyTitle,
+      deleteItem,
+    } = this.props;
     const items = todos.map((object) => (
       <ItemList
         key={object.id}
@@ -14,6 +19,7 @@ export default class TodosList extends Component {
         completed={object.completed}
         addCheck={addCheck}
         modifyTitle={modifyTitle}
+        deleteItem={deleteItem}
       />
     ));
     return (
@@ -31,6 +37,7 @@ const ItemList = (props) => {
     completed,
     addCheck,
     modifyTitle,
+    deleteItem,
   } = props;
 
   const [editable, setEditable] = useState(true);
@@ -80,39 +87,46 @@ const ItemList = (props) => {
         onDoubleClick={handleDoubleClick}
         onBlur={handleBlur}
       />
+      <button type="submit" id={id} onClick={(event) => deleteItem(event.target.id)} className="trashBtn">
+        delete
+      </button>
     </li>
   );
 };
 
 ItemList.defaultProps = {
+  deleteItem: PropTypes.func,
   modifyTitle: null,
-  id: 0,
+  id: '0',
   title: string,
   completed: bool,
   addCheck: bool,
 };
 
 ItemList.propTypes = {
+  deleteItem: PropTypes.func,
   modifyTitle: PropTypes.func,
-  id: PropTypes.number,
+  id: PropTypes.string,
   title: PropTypes.string,
   completed: PropTypes.bool,
   addCheck: PropTypes.func,
 };
 
 TodosList.defaultProps = {
+  deleteItem: null,
   modifyTitle: null,
   addCheck: {},
   todos: [],
 };
 
 TodosList.propTypes = {
+  deleteItem: PropTypes.func,
   modifyTitle: PropTypes.func,
   addCheck: PropTypes.func,
   todos: PropTypes.arrayOf(
     PropTypes.shape(
       {
-        id: PropTypes.number,
+        id: PropTypes.string,
         title: PropTypes.string,
         completed: PropTypes.bool,
       },

@@ -25,11 +25,12 @@
 }
 
 .currentTD {
-  padding: 7px;
+  padding: 5px;
   width: 300px;
   border: none;
   font-size: 0.9rem;
   background-color: beige;
+  margin: 10px 0;
 
 }
 
@@ -39,4 +40,11 @@ ul {
 
 li {
   display: flex;
+}
+
+.trashBtn {
+  height: 2rem;
+  border-radius: 15px;
+  background-color: beige;
+  font-size: 1rem;
 }
