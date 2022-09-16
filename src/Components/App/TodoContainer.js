@@ -55,7 +55,6 @@ export default class TodoContainer extends Component {
   }
 
   modifyTitle(index, title) {
-    // const id = parseInt(index, 10);
     const { todos } = this.state;
     const temporal = [...todos];
     const arr = temporal.map((obj) => {

@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
 import PropTypes, { bool, string } from 'prop-types';
-/* eslint-disable react/jsx-boolean-value */
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class TodosList extends Component {
