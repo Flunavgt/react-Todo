@@ -7,7 +7,7 @@
   margin-top: 15%;
   border: 2px dotted rgb(30, 30, 174);
   background-color: beige;
-  border-radius: 0px 0 70px 0;
+  border-radius: 0 0 70px 0;
 }
 
 .addBtn {
@@ -31,7 +31,6 @@
   font-size: 0.9rem;
   background-color: beige;
   margin: 10px 0;
-
 }
 
 ul {
